@@ -52,7 +52,7 @@ public class ClienteServiceImpl implements IClienteService{
 
 	@Override
 	@Transactional(readOnly=true)
-	public ResponseEntity<ClienteResponseRest> buscarPorId(long id) {
+	public ResponseEntity<ClienteResponseRest> buscarPorId(Long id) {
 
 		log.info("Inicio del método buscarPorId");
 
@@ -65,7 +65,7 @@ public class ClienteServiceImpl implements IClienteService{
 			
 			if(cliente.isPresent()) {//si existe la categoría
 				list.add(cliente.get());
-				response.setMetadata("Respuesta ok", "00", "Cliente no encontrado");
+				response.setMetadata("Respuesta ok", "00", "Cliente encontrado");
 				response.getClienteResponse().setCliente(list);
 			}else {//si no existe la categoría
 				log.error("Error al consultar los clientes");
@@ -108,7 +108,7 @@ public class ClienteServiceImpl implements IClienteService{
 			
 		}catch(Exception e) {
 			log.error("Error al consultar el cliente");
-			response.setMetadata("Respuesta noK", "-1", "Error al consultar el cliente");
+			response.setMetadata("Respuesta noK", "-1", "Error al grabar el cliente");
 			return new ResponseEntity<ClienteResponseRest>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 			
 		}
@@ -119,7 +119,7 @@ public class ClienteServiceImpl implements IClienteService{
 
 	@Override
 	@Transactional
-	public ResponseEntity<ClienteResponseRest> actualizar(Cliente cliente, long id) {
+	public ResponseEntity<ClienteResponseRest> actualizar(Cliente cliente, Long id) {
 		log.info("Inicio del método actualizar cliente");
 		
 		ClienteResponseRest response = new ClienteResponseRest();
@@ -166,7 +166,7 @@ public class ClienteServiceImpl implements IClienteService{
 
 	@Override
 	@Transactional
-	public ResponseEntity<ClienteResponseRest> eliminar(long id) {
+	public ResponseEntity<ClienteResponseRest> eliminar(Long id) {
 		log.info("Inicio del método eliminar");
 		
 		ClienteResponseRest response = new ClienteResponseRest();

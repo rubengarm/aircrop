@@ -11,11 +11,11 @@ public interface IClienteService {
 	
 	public ResponseEntity<ClienteResponseRest> buscarClientes();
 	
-	public ResponseEntity<ClienteResponseRest> buscarPorId(long id);
+	public ResponseEntity<ClienteResponseRest> buscarPorId(Long id);
     
     public ResponseEntity<ClienteResponseRest> crear (Cliente cliente);
     
-    public ResponseEntity<ClienteResponseRest> actualizar (Cliente cliente, long id);
+    public ResponseEntity<ClienteResponseRest> actualizar (Cliente cliente, Long id);
     
-    public ResponseEntity<ClienteResponseRest> eliminar(long id); 
+    public ResponseEntity<ClienteResponseRest> eliminar(Long id); 
 }

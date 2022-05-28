@@ -12,9 +12,9 @@ public interface IFincaService {
 	
 	public ResponseEntity<FincaResponseRest> buscarPorId(long id);
     
-    public ResponseEntity<FincaResponseRest> crear (Finca cultivo);
+    public ResponseEntity<FincaResponseRest> crear (Finca finca);
     
-    public ResponseEntity<FincaResponseRest> actualizar (Finca cultivo, long id);
+    public ResponseEntity<FincaResponseRest> actualizar (Finca finca, long id);
     
     public ResponseEntity<FincaResponseRest> eliminar(long id); 
 }
